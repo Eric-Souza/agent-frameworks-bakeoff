@@ -1,0 +1,33 @@
+[project]
+name = "agent-frameworks-bakeoff"
+version = "0.1.0"
+description = "One multi-agent refund desk built three times, with CrewAI, AutoGen and LangGraph, on the same model and tools, traced with Phoenix"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "crewai>=1.15",
+    "autogen-agentchat>=0.7.5",
+    "autogen-ext[openai]>=0.7.5",
+    "langgraph>=1.2",
+    "langchain-openai>=1.7",
+    "arize-phoenix-otel>=0.17",
+    "openinference-instrumentation-crewai",
+    "openinference-instrumentation-litellm",
+    "openinference-instrumentation-autogen-agentchat",
+    "openinference-instrumentation-openai",
+    "openinference-instrumentation-langchain",
+    "httpx",
+    "starlette",
+    "uvicorn",
+    "python-dotenv",
+    "truststore>=0.10.5",
+]
+
+[dependency-groups]
+dev = ["pytest", "ruff"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
